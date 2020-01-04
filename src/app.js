@@ -3,24 +3,28 @@ const express = require("express");
 const app = express();
 const expressLayouts = require("express-ejs-layouts");
 
-app.set('view enine', 'ejs');
+//app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
 app.use(express.static('public'));
 
-app.use(function(req, res, next){
-    res.status(404); 
-    if (req.accepts('ejs')) {// respond with html page
-      res.render('404', { url: req.url });
-      return;
-    } 
-    if (req.accepts('json')) {// respond with json
-      res.send({ error: 'Page Not found' });
-      return;
-    } 
-    res.type('txt').send('Not found');// default to plain-text. send()
-  });
+// app.engine('html', require('ejs').renderFile);
+// app.set('view engine', 'html');
+
+// app.use(function(req, res, next){
+//     res.status(404); 
+//     if (req.accepts('ejs')) {// respond with html page
+//       res.render('404', { url: req.url });
+//       return;
+//     } 
+//     if (req.accepts('json')) {// respond with json
+//       res.send({ error: 'Page Not found' });
+//       return;
+//     } 
+//     res.type('txt').send('Not found');// default to plain-text. send()
+//   });
 /*
  **** All Routes is get from here
  */

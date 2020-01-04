@@ -3,7 +3,7 @@ const router = express.Router();
 const { } = require('../controller/usersController');
 
 router.get('/', (req, res, next) => {
-    res.render('index')
+    res.render('../../views/index')
 })
 
 module.exports = router;
