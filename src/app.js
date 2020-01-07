@@ -28,7 +28,7 @@ app.use(express.static('public'));
 /*
  **** All Routes is get from here
  */
-const usersRoute = require('./routes/users.Route');
+const indexRoute = require('./routes/index.Route');
 
 
 
@@ -38,7 +38,7 @@ const usersRoute = require('./routes/users.Route');
 /*
  **** Use all Routes
  */
-app.use('/users', usersRoute);
+app.use('', indexRoute);
 
 
 /*
