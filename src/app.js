@@ -10,51 +10,29 @@ app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
 app.use(express.static('public'));
 
-// app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'html');
 
-// app.use(function(req, res, next){
-//     res.status(404); 
-//     if (req.accepts('ejs')) {// respond with html page
-//       res.render('404', { url: req.url });
-//       return;
-//     } 
-//     if (req.accepts('json')) {// respond with json
-//       res.send({ error: 'Page Not found' });
-//       return;
-//     } 
-//     res.type('txt').send('Not found');// default to plain-text. send()
-//   });
+
 /*
  **** All Routes is get from here
  */
 const indexRoute = require('./routes/index.Route');
+const orgRoute = require('./routes/org.Route');
 
 
 
-
+/*
+ **** Create Middle-Ware for  All Routes is get from here
+ */
 
 
 /*
  **** Use all Routes
  */
 app.use('', indexRoute);
+app.use('/org', orgRoute);
 
 
-/*
- **** Use error handling Routes
- */
-// app.use((req, res, next) => {
-//     const error = new Error('Not Found');
-//     error.status = 404;
-//     next(error);
-// });
-// app.use((error, req, res, next) => {
-//     res.status(err.status || 500);
-//     res.json({
-//         error: {
-//             message: error.message
-//         }
-//     })
-// });
+
+
+
 module.exports = app;
